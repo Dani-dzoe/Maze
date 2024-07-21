@@ -36,3 +36,6 @@ fclean: clean oclean
 
 # Run full clean and recompile all files
 re: fclean all
+
+all:
+	gcc -L /src/include/ -L /src/lib -o main main.c -lSDL2main -lSDL2 -L SDL2_image.dll -L SLD2.dll
