@@ -3,9 +3,9 @@
 
 /*
  * File: maze.h
- * Auth: Elysée NIYIBIZI
- * Desc: Header file containing declarations for all functions
- *       used my whole Program.
+ * Author: DANIEL DZOTEPE
+ * Description: Header file containing declarations for all functions
+ *       used by whole Program.
  */
 
 #include <SDL2/SDL.h>
@@ -17,7 +17,7 @@
 #include <string.h>
 #include <ctype.h>
 
-#define SCREEN_HEIGHT 768
+#define SCREEN_HEIGHT 800
 #define SCREEN_WIDTH 1024
 
 #define MAP_WIDTH 24
@@ -98,14 +98,14 @@ int keyboard_events(keys *);
 void check_key_release_events(SDL_Event, keys *);
 int check_key_press_events(SDL_Event, keys *);
 
-/* Create the map for maze from file: create_maze.c */
+/* Create the map for maze from file: maze.c */
 char **create_map(char *, double_s *, int_s *, size_t *);
 void plot_grid_points(char **, double_s *, int_s *, size_t, size_t, char *,
 		      int *);
 size_t get_line_count(char *);
 size_t get_char_count(char *);
 
-/* Build levels for every file passed to program: create_world.c */
+/* Build levels for every file passed to program: _main.c */
 level *build_world_from_args(int, char **);
 
 /* Draw the maze: draw.c */
@@ -114,11 +114,11 @@ void draw_walls(char **, double_s, SDL_Instance, double_s, double_s);
 void choose_color(SDL_Instance, char **, int_s, int);
 void draw_background(SDL_Instance);
 
-/* Handle player movement/rotation: movement.c */
+/* Handle player movement/rotation: move.c */
 void rotate(double_s *, double_s *, int);
 void movement(keys, double_s *, double_s *, double_s *, char **);
 
-/* Handle player winning: win.c */
+/* Handle player winning: player_wins.c */
 void print_win(void);
 int check_win(double_s, int_s, int *);
 
@@ -127,7 +127,7 @@ double get_wall_dist(char **, double_s *, int_s *, int_s *, double_s *, int *,
 		     double_s *, double_s *);
 void check_ray_dir(int_s *, double_s *, double_s, int_s, double_s, double_s);
 
-/* Free and close everything necessary: free_stuff.c */
+/* Free and close everything necessary: additional_moves.c */
 void free_memory(SDL_Instance, char **, size_t);
 void free_map(char **, size_t);
 void close_SDL(SDL_Instance);

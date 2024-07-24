@@ -7,9 +7,9 @@ CFLAGS=-g -Wall -Werror -Wextra -pedantic
 SDL_FLAGS=-I/usr/local/include/SDL2 -L/usr/lib/x86_64-linux-gnu -lSDL2 -lm
 
 # All C program files
-SRC=./src/create_maze.c ./src/create_world.c ./src/dist_checks.c ./src/draw.c ./src/event_handlers.c ./src/free_stuff.c ./src/init_instance.c ./src/main_maze.c ./src/movement.c ./src/win.c
+SOURCE=./source/maze.c ./source/main.c ./source/dist_checks.c ./source/draw.c ./source/event_handlers.c ./source/additional_moves.c ./source/init_instance.c ./source/main_playground.c ./source/move.c ./source/player_wins.c
 # The names of all object files
-OBJ=$(SRC:.c=.o)
+OBJ=$(SOURCE:.c=.o)
 # Executable name
 NAME=maze
 
@@ -22,11 +22,11 @@ RM=rm
 all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME) $(SDL_FLAGS)
 
-# Remove all Emacs temp files (~)
+# Remove all temp files
 clean:
 	$(RM) -f *~
 
-# Remove all object files (.o)
+# Remove all object files
 oclean:
 	$(RM) -f $(OBJ)
 
@@ -36,6 +36,3 @@ fclean: clean oclean
 
 # Run full clean and recompile all files
 re: fclean all
-
-all:
-	gcc -L /src/include/ -L /src/lib -o main main.c -lSDL2main -lSDL2 -L SDL2_image.dll -L SLD2.dll
