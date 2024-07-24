@@ -1,9 +1,3 @@
-/*
- * File: create_maze.c
- * Auth: Elysée NIYIBIZI
- *
- */
-
 #include "../maze.h"
 
 /**
